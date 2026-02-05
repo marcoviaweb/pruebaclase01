@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Cheat Sheet - Comandos Esenciales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Git Master</h1>
+        <p class="subtitle">Tu guía esencial de comandos para el control de versiones</p>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar comando (ej. commit, push, branch)...">
+        </div>
+    </header>
+
+    <main id="commands-container">
+        <!-- Configuración -->
+        <section class="category-section">
+            <h2 class="category-title">
+                <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Configuración
+            </h2>
+
+            <div class="command-card" data-keywords="config name user email">
+                <div class="command-header">
+                    <span class="command-name">Identidad de Usuario</span>
+                </div>
+                <p class="command-desc">Configura tu nombre y email para tus commits.</p>
+                <div class="code-block">
+                    <code>git config --global user.name "Tu Nombre"</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="command-card" data-keywords="config init repository">
+                <div class="command-header">
+                    <span class="command-name">Iniciar Repositorio</span>
+                </div>
+                <p class="command-desc">Inicializa un nuevo repositorio Git en el directorio actual.</p>
+                <div class="code-block">
+                    <code>git init</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="command-card" data-keywords="clone download remote">
+                <div class="command-header">
+                    <span class="command-name">Clonar Repositorio</span>
+                </div>
+                <p class="command-desc">Descarga un repositorio existente desde una URL (GitHub, GitLab, etc.).</p>
+                <div class="code-block">
+                    <code>git clone &lt;url&gt;</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Básico -->
+        <section class="category-section">
+            <h2 class="category-title">
+                <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
+                </svg>
+                Flujo de Trabajo Básico
+            </h2>
+
+            <div class="command-card" data-keywords="status changes">
+                <div class="command-header">
+                    <span class="command-name">Ver Estado</span>
+                </div>
+                <p class="command-desc">Muestra los archivos modificados, agregados o eliminados.</p>
+                <div class="code-block">
+                    <code>git status</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="command-card" data-keywords="add stage files">
+                <div class="command-header">
+                    <span class="command-name">Añadir Archivos</span>
+                </div>
+                <p class="command-desc">Añade cambios al área de preparación (stage) para el próximo commit.</p>
+                <div class="code-block">
+                    <code>git add .</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="command-card" data-keywords="commit save message">
+                <div class="command-header">
+                    <span class="command-name">Guardar Cambios</span>
+                </div>
+                <p class="command-desc">Guarda los cambios preparados con un mensaje descriptivo.</p>
+                <div class="code-block">
+                    <code>git commit -m "Mensaje"</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ramas -->
+        <section class="category-section">
+            <h2 class="category-title">
+                <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
+                </svg>
+                Ramas (Branches)
+            </h2>
+
+            <div class="command-card" data-keywords="branch list create">
+                <div class="command-header">
+                    <span class="command-name">Listar/Crear Ramas</span>
+                </div>
+                <p class="command-desc">Muestra todas las ramas locales o crea una nueva.</p>
+                <div class="code-block">
+                    <code>git branch [nombre]</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="command-card" data-keywords="checkout switch">
+                <div class="command-header">
+                    <span class="command-name">Cambiar Rama</span>
+                </div>
+                <p class="command-desc">Cambia a la rama especificada.</p>
+                <div class="code-block">
+                    <code>git checkout &lt;nombre-rama&gt;</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="command-card" data-keywords="merge combine join">
+                <div class="command-header">
+                    <span class="command-name">Fusionar Ramas</span>
+                </div>
+                <p class="command-desc">Combina la historia de una rama en la rama actual.</p>
+                <div class="code-block">
+                    <code>git merge &lt;nombre-rama&gt;</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sincronización -->
+        <section class="category-section">
+            <h2 class="category-title">
+                <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                    </path>
+                </svg>
+                Sincronización
+            </h2>
+
+            <div class="command-card" data-keywords="push upload send">
+                <div class="command-header">
+                    <span class="command-name">Enviar Cambios</span>
+                </div>
+                <p class="command-desc">Envía los cambios de tu rama local al repositorio remoto.</p>
+                <div class="code-block">
+                    <code>git push origin &lt;rama&gt;</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="command-card" data-keywords="pull fetch update">
+                <div class="command-header">
+                    <span class="command-name">Traer Cambios</span>
+                </div>
+                <p class="command-desc">Descarga y fusiona los cambios del remoto a tu rama actual.</p>
+                <div class="code-block">
+                    <code>git pull origin &lt;rama&gt;</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="command-card" data-keywords="log history">
+                <div class="command-header">
+                    <span class="command-name">Ver Historial</span>
+                </div>
+                <p class="command-desc">Muestra el historial de commits.</p>
+                <div class="code-block">
+                    <code>git log --oneline</code>
+                    <button class="copy-btn" title="Copiar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Creado con ❤️ por Antigravity</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
